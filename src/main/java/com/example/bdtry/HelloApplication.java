@@ -21,4 +21,5 @@ public class HelloApplication extends Application {
         launch();
     }
 }
-//loh siapa ini
+//scene awal pada 3 pilihan admin, wali kelas, murid, guru
+//sistem e kek sim petra

@@ -1,4 +1,4 @@
-package com.example.bdtry;
+package com.example.bdtry.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
