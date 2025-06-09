@@ -17,8 +17,4 @@ public class WaliKelas {
         this.name = rs.getString("wali_kelas_name");
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
 }

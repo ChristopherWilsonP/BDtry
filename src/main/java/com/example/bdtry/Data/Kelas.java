@@ -20,8 +20,5 @@ public class Kelas {
         this.WaliKelasID = rs.getInt("wali_kelas_id");
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
+
 }

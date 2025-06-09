@@ -20,8 +20,5 @@ public class Admin {
         this.username = rs.getString("admin_username");
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
+
 }

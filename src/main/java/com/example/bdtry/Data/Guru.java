@@ -17,8 +17,5 @@ public class Guru {
         this.name = rs.getString("guru_name");
     }
 
-    @Override
-    public String toString() {
-        return name;
-    }
+
 }
