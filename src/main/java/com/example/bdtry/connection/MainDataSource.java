@@ -10,7 +10,7 @@ public class MainDataSource {
     private static HikariDataSource ds;
 
     static {
-        config.setJdbcUrl("jdbc:postgresql://localhost:5432/PRPrakBD_9");
+        config.setJdbcUrl("jdbc:postgresql://localhost:5432/ProjectBD");
         config.setUsername("postgres");
         config.setPassword("Christopher1610");
         config.addDataSourceProperty("cachePrepStmts", "true");

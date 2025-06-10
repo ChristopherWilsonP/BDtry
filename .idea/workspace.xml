@@ -4,21 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb3accf3-a300-4dc7-869d-b6cd508055ca" name="Changes" comment="commit1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Absensi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/EksKur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Jadwal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/JadwalGuru.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/MataPelajaran.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Murid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Nilai.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Rapor.java" afterDir="false" />
+    <list default="true" id="bb3accf3-a300-4dc7-869d-b6cd508055ca" name="Changes" comment="commit2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/controller/GuruController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/controller/StudentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/controller/WaliKelasController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/util/LoginSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/util/RaporRow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/bdtry/admin-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/bdtry/guru-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/bdtry/login-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/bdtry/wali-kelas-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Guru.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Guru.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Kelas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Kelas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/WaliKelas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/WaliKelas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/connection/MainDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/connection/MainDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/controller/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/bdtry/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +32,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -66,13 +70,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.bdtry" />
@@ -119,12 +127,21 @@
       <option name="project" value="LOCAL" />
       <updated>1749044099122</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="commit2">
+      <option name="closed" value="true" />
+      <created>1749447605559</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749447605559</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="trial" />
     <MESSAGE value="commit1" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit1" />
+    <MESSAGE value="commit2" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit2" />
   </component>
 </project>

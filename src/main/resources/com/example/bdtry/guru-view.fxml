@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <?import javafx.scene.layout.*?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.bdtry.controller.GuruController">
+
+<top>
+    <Label text="Guru Dashboard"
+           style="-fx-font-size: 20px; -fx-font-weight: bold;"
+           BorderPane.alignment="CENTER" />
+</top>
+
+<center>
+    <TabPane>
+        <!-- Tab Jadwal -->
+        <Tab text="Lihat Jadwal">
+            <VBox spacing="10" padding="10">
+                <TableView fx:id="jadwalTable" prefHeight="300">
+                    <columns>
+                        <TableColumn fx:id="hariCol" text="Hari"/>
+                        <TableColumn fx:id="jamMulaiCol" text="Jam Mulai"/>
+                        <TableColumn fx:id="jamSelesaiCol" text="Jam Selesai"/>
+                        <TableColumn fx:id="kelasCol" text="Kelas"/>
+                        <TableColumn fx:id="mapelCol" text="Mata Pelajaran"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- Tab Input Nilai -->
+        <Tab text="Input Nilai">
+            <VBox spacing="10" padding="10">
+                <HBox spacing="10">
+                    <Label text="Kelas:"/>
+                    <ComboBox fx:id="comboKelas" prefWidth="150"/>
+                    <Label text="Mata Pelajaran:"/>
+                    <ComboBox fx:id="comboPelajaran" prefWidth="150"/>
+                    <Label text="Jenis Ujian:"/>
+                    <ComboBox fx:id="comboUjian" prefWidth="120"/>
+                </HBox>
+
+                <TableView fx:id="siswaNilaiTable" prefHeight="300">
+                    <columns>
+                        <TableColumn fx:id="nisnCol" text="NISN"/>
+                        <TableColumn fx:id="namaSiswaCol" text="Nama"/>
+                        <TableColumn fx:id="nilaiCol" text="Nilai"/>
+                    </columns>
+                </TableView>
+
+                <Button text="Simpan Nilai" onAction="#handleSimpanNilai" />
+            </VBox>
+        </Tab>
+    </TabPane>
+</center>
+</BorderPane>

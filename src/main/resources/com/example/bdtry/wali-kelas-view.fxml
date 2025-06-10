@@ -1,0 +1,20 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.bdtry.controller.WaliKelasController" spacing="10" padding="10">
+    <Label text="Pilih Siswa"/>
+    <ComboBox fx:id="siswaComboBox"/>
+    <Button text="Tampilkan Rapor" onAction="#handleTampilkanRapor"/>
+
+    <TableView fx:id="raporTable">
+        <columns>
+            <TableColumn fx:id="mataPelajaranColumn" text="Mata Pelajaran"/>
+            <TableColumn fx:id="utsColumn" text="UTS"/>
+            <TableColumn fx:id="uasColumn" text="UAS"/>
+        </columns>
+    </TableView>
+</VBox>
