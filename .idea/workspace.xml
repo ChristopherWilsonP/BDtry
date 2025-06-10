@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb3accf3-a300-4dc7-869d-b6cd508055ca" name="Changes" comment="commit1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Absensi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/EksKur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Jadwal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/JadwalGuru.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/MataPelajaran.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Murid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Nilai.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Rapor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/util/LoginSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/bdtry/admin-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/bdtry/login-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Guru.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Guru.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Kelas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/Kelas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/WaliKelas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/Data/WaliKelas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/bdtry/connection/MainDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/bdtry/connection/MainDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/bdtry/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +25,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -66,13 +64,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/projectBDtry"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.bdtry" />
