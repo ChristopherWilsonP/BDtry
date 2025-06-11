@@ -3,17 +3,20 @@ package com.example.bdtry.controller;
 import com.example.bdtry.connection.MainDataSource;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 
 public class AdminController {
 
-    @FXML private TextField nisField, namaField, tempatLahirField, alamatField;
-    @FXML private DatePicker tanggalLahirPicker;
-    @FXML private ComboBox<String> kelasComboBox, waliKelasComboBox;
+    @FXML private TextField siswa_idField, siswa_full_nameField, siswa_addressField;
+    @FXML private DatePicker siswa_birth_datePicker;
+    @FXML private ComboBox<String> kelas_idComboBox, wali_kelas_idComboBox;
+    @FXML private ComboBox<String> jadwal_dateCombo, jadwal_durationCombo, guru_idCombo, matapel_nameCombo;
+    @FXML private TextField jadwal_durationField;
+    @FXML private ComboBox<String> siswa_idComboBox, new_kelas_idComboBox, new_wali_kelas_idComboBox;
 
-    @FXML private ComboBox<String> jadwalKelasCombo, hariCombo, guruCombo, mapelCombo;
-    @FXML private TextField jamMulaiField, jamSelesaiField;
 
     @FXML
     public void initialize() {
@@ -21,18 +24,21 @@ public class AdminController {
         loadGuru();
         loadMapel();
         loadWaliKelas();
+        loadSiswaNaik();
+        loadKelasBaru();
+        loadWaliBaru();
     }
 
     private void loadKelas() {
-        kelasComboBox.getItems().clear();
-        jadwalKelasCombo.getItems().clear();
+        kelas_idComboBox.getItems().clear();
+        jadwal_dateCombo.getItems().clear();
         try (Connection conn = MainDataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT nama FROM kelas")) {
             while (rs.next()) {
                 String namaKelas = rs.getString("nama");
-                kelasComboBox.getItems().add(namaKelas);
-                jadwalKelasCombo.getItems().add(namaKelas);
+                kelas_idComboBox.getItems().add(namaKelas);
+                jadwal_dateCombo.getItems().add(namaKelas);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -40,12 +46,12 @@ public class AdminController {
     }
 
     private void loadGuru() {
-        guruCombo.getItems().clear();
+        guru_idCombo.getItems().clear();
         try (Connection conn = MainDataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT nama FROM guru")) {
             while (rs.next()) {
-                guruCombo.getItems().add(rs.getString("nama"));
+                guru_idCombo.getItems().add(rs.getString("nama"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -53,12 +59,12 @@ public class AdminController {
     }
 
     private void loadMapel() {
-        mapelCombo.getItems().clear();
+        matapel_nameCombo.getItems().clear();
         try (Connection conn = MainDataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT nama FROM mata_pelajaran")) {
             while (rs.next()) {
-                mapelCombo.getItems().add(rs.getString("nama"));
+                matapel_nameCombo.getItems().add(rs.getString("nama"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -66,12 +72,79 @@ public class AdminController {
     }
 
     private void loadWaliKelas() {
-        waliKelasComboBox.getItems().clear();
+        wali_kelas_idComboBox.getItems().clear();
         try (Connection conn = MainDataSource.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery("SELECT nama FROM wali_kelas")) {
             while (rs.next()) {
-                waliKelasComboBox.getItems().add(rs.getString("nama"));
+                wali_kelas_idComboBox.getItems().add(rs.getString("nama"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadSiswaNaik() {
+        siswa_idComboBox.getItems().clear();
+        try (Connection conn = MainDataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT nama FROM siswa")) {
+            while (rs.next()) {
+                siswa_idComboBox.getItems().add(rs.getString("nama"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadKelasBaru() {
+        new_kelas_idComboBox.getItems().clear();
+        try (Connection conn = MainDataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT nama FROM kelas")) {
+            while (rs.next()) {
+                new_kelas_idComboBox.getItems().add(rs.getString("nama"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void handleSetWaliKelas() {
+        String kelas = kelas_idComboBox.getValue();
+        String wali = wali_kelas_idComboBox.getValue();
+
+        if (kelas == null || wali == null) {
+            showAlert("Peringatan", "Silakan pilih kelas dan wali kelas.");
+            return;
+        }
+
+        try (Connection conn = MainDataSource.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(
+                    "UPDATE kelas SET wali_kelas_id = (SELECT id FROM wali_kelas WHERE nama = ?) WHERE nama = ?"
+            );
+            stmt.setString(1, wali);
+            stmt.setString(2, kelas);
+            int updated = stmt.executeUpdate();
+
+            if (updated > 0) {
+                showAlert("Sukses", "Wali kelas berhasil di-set.");
+            } else {
+                showAlert("Info", "Tidak ada kelas yang diupdate.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Error", STR."Gagal set wali kelas: \{e.getMessage()}");
+        }
+    }
+
+    private void loadWaliBaru() {
+        new_wali_kelas_idComboBox.getItems().clear();
+        try (Connection conn = MainDataSource.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery("SELECT nama FROM wali_kelas")) {
+            while (rs.next()) {
+                new_wali_kelas_idComboBox.getItems().add(rs.getString("nama"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -79,34 +152,35 @@ public class AdminController {
     }
 
     @FXML
+    private void handleSimpanSiswa() {
+        handleTambahSiswa();
+    }
+
+    @FXML
     private void handleTambahSiswa() {
-        String nis = nisField.getText();
-        String nama = namaField.getText();
-        String tempatLahir = tempatLahirField.getText();
-        String alamat = alamatField.getText();
-        LocalDate tanggalLahir = tanggalLahirPicker.getValue();
-        String kelas = kelasComboBox.getValue();
+        String nis = siswa_idField.getText();
+        String nama = siswa_full_nameField.getText();
+        String alamat = siswa_addressField.getText();
+        LocalDate tanggalLahir = siswa_birth_datePicker.getValue();
+        String kelas = kelas_idComboBox.getValue();
 
         try (Connection conn = MainDataSource.getConnection()) {
             conn.setAutoCommit(false);
 
-            // insert siswa
             PreparedStatement siswaStmt = conn.prepareStatement(
                     "INSERT INTO siswa (nomor_induk, nama, tempat_lahir, tanggal_lahir, alamat, kelas_id) " +
                             "VALUES (?, ?, ?, ?, ?, (SELECT id FROM kelas WHERE nama = ?))");
             siswaStmt.setString(1, nis);
             siswaStmt.setString(2, nama);
-            siswaStmt.setString(3, tempatLahir);
-            siswaStmt.setDate(4, Date.valueOf(tanggalLahir));
-            siswaStmt.setString(5, alamat);
-            siswaStmt.setString(6, kelas);
+            siswaStmt.setDate(3, Date.valueOf(tanggalLahir));
+            siswaStmt.setString(4, alamat);
+            siswaStmt.setString(5, kelas);
             siswaStmt.executeUpdate();
 
-            // insert login ke users
             PreparedStatement userStmt = conn.prepareStatement(
                     "INSERT INTO users (username, password, role) VALUES (?, ?, 'siswa')");
             userStmt.setString(1, nis);
-            userStmt.setString(2, tanggalLahir.toString()); // password = tanggal lahir
+            userStmt.setString(2, tanggalLahir.toString());
             userStmt.executeUpdate();
 
             conn.commit();
@@ -118,13 +192,17 @@ public class AdminController {
     }
 
     @FXML
+    private void handleSimpanJadwal() {
+        handleInputJadwal();
+    }
+
+    @FXML
     private void handleInputJadwal() {
-        String kelas = jadwalKelasCombo.getValue();
-        String hari = hariCombo.getValue();
-        String jamAwal = jamMulaiField.getText();
-        String jamAkhir = jamSelesaiField.getText();
-        String guru = guruCombo.getValue();
-        String mapel = mapelCombo.getValue();
+        String kelas = kelas_idComboBox.getValue();
+        String hari = jadwal_dateCombo.getValue();
+        String jadwalDurasi = jadwal_durationField.getText();
+        String guru = guru_idCombo.getValue();
+        String mapel = matapel_nameCombo.getValue();
 
         try (Connection conn = MainDataSource.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(
@@ -133,8 +211,8 @@ public class AdminController {
                             "(SELECT id FROM guru WHERE nama = ?), (SELECT id FROM mata_pelajaran WHERE nama = ?))");
             stmt.setString(1, kelas);
             stmt.setString(2, hari);
-            stmt.setString(3, jamAwal);
-            stmt.setString(4, jamAkhir);
+            stmt.setString(3, jadwalDurasi);
+            stmt.setString(4, jadwalDurasi);
             stmt.setString(5, guru);
             stmt.setString(6, mapel);
             stmt.executeUpdate();
@@ -142,26 +220,51 @@ public class AdminController {
             showAlert("Sukses", "Jadwal berhasil ditambahkan.");
         } catch (SQLException e) {
             e.printStackTrace();
-            showAlert("Error", "Gagal menambahkan jadwal: " + e.getMessage());
+            showAlert("Error", STR."Gagal menambahkan jadwal: \{e.getMessage()}");
         }
     }
 
     @FXML
-    private void handleSetWaliKelas() {
-        String kelas = kelasComboBox.getValue();
-        String wali = waliKelasComboBox.getValue();
+    private void handleUpdateKelasSiswa() {
+        handleUpdateWaliKelasSiswa();
+    }
+
+    @FXML
+    private void handleUpdateWaliKelasSiswa() {
+        String siswa = siswa_idComboBox.getValue();
+        String kelasBaru = new_kelas_idComboBox.getValue();
+        String waliBaru = new_wali_kelas_idComboBox.getValue();
 
         try (Connection conn = MainDataSource.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(
-                    "UPDATE kelas SET wali_kelas_id = (SELECT id FROM wali_kelas WHERE nama = ?) WHERE nama = ?");
-            stmt.setString(1, wali);
-            stmt.setString(2, kelas);
+                    "UPDATE siswa SET kelas_id = (SELECT id FROM kelas WHERE nama = ?) WHERE nama = ?");
+            stmt.setString(1, kelasBaru);
+            stmt.setString(2, siswa);
             stmt.executeUpdate();
 
-            showAlert("Sukses", "Wali kelas berhasil di-set.");
+            PreparedStatement waliStmt = conn.prepareStatement(
+                    "UPDATE kelas SET wali_kelas_id = (SELECT id FROM wali_kelas WHERE nama = ?) WHERE nama = ?");
+            waliStmt.setString(1, waliBaru);
+            waliStmt.setString(2, kelasBaru);
+            waliStmt.executeUpdate();
+
+            showAlert("Sukses", "Siswa dan wali kelas berhasil diperbarui.");
         } catch (SQLException e) {
             e.printStackTrace();
-            showAlert("Error", "Gagal set wali kelas: " + e.getMessage());
+            showAlert("Error", STR."Gagal memperbarui kelas siswa: \{e.getMessage()}");
+        }
+    }
+
+    @FXML
+    private void handleLogout() {
+        try {
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/example/bdtry/login-view.fxml"));
+            javafx.scene.Parent root = loader.load();
+            javafx.stage.Stage stage = (javafx.stage.Stage) siswa_idComboBox.getScene().getWindow();
+            stage.setScene(new javafx.scene.Scene(root));
+            stage.setTitle("Login");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

@@ -12,9 +12,9 @@
 
     <TableView fx:id="raporTable">
         <columns>
-            <TableColumn fx:id="mataPelajaranColumn" text="Mata Pelajaran"/>
-            <TableColumn fx:id="utsColumn" text="UTS"/>
-            <TableColumn fx:id="uasColumn" text="UAS"/>
+            <TableColumn fx:id="matapel_nameColumn" text="Mata Pelajaran"/>
+            <TableColumn fx:id="nilai_test_typeColumn" text="Tipe tes"/>
+            <TableColumn fx:id="nilai_grade" text="Grade "/>
         </columns>
     </TableView>
 </VBox>

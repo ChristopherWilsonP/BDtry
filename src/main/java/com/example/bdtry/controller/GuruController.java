@@ -129,7 +129,7 @@ public class GuruController {
     }
 
     @FXML
-    void simpanNilai() {
+    void handleSimpanNilai() {
         String siswaData = comboSiswa.getValue();
         String pelajaran = comboPelajaran.getValue();
         String ujian = comboUjian.getValue();

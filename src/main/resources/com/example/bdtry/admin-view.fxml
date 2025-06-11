@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.bdtry.controller.AdminController" prefWidth="800" prefHeight="600">
     <top>
@@ -13,44 +14,56 @@
 
     <center>
         <TabPane fx:id="adminTabPane">
+
+            <!-- ===== TAB: Input Siswa ===== -->
             <Tab text="Input Siswa">
-                <VBox spacing="10" padding="10">
+                <VBox spacing="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10" />
+                    </padding>
                     <Label text="Form Input Siswa Baru" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
-                    <TextField fx:id="siswaNameField" promptText="Nama Lengkap" />
-                    <DatePicker fx:id="siswaBirthDatePicker" promptText="Tanggal Lahir" />
-                    <TextField fx:id="siswaAddressField" promptText="Alamat" />
-                    <ComboBox fx:id="kelasComboBox" promptText="Pilih Kelas" />
-                    <ComboBox fx:id="waliKelasComboBox" promptText="Pilih Wali Kelas" />
-                    <ComboBox fx:id="ekskulComboBox" promptText="Pilih Ekstrakurikuler" />
-                    <Button text="Simpan Siswa" onAction="#handleSimpanSiswa" />
-                    <Label fx:id="siswaStatusLabel" textFill="green" />
+                    <TextField fx:id="siswa_idField" promptText="NIS" />
+                    <TextField fx:id="siswa_full_nameField" promptText="Nama Lengkap" />
+                    <DatePicker fx:id="siswa_birth_datePicker" promptText="Tanggal Lahir" />
+                    <TextField fx:id="siswa_addressField" promptText="Alamat" />
+                    <ComboBox fx:id="kelas_idComboBox" promptText="Pilih Kelas" />
+                    <ComboBox fx:id="wali_kelas_idComboBox" promptText="Pilih Wali Kelas" />
+                    <Button text="Simpan Siswa" onAction="#handleTambahSiswa" />
+                    <Button text="Set Wali Kelas" onAction="#handleSetWaliKelas" />
                 </VBox>
             </Tab>
 
+            <!-- ===== TAB: Input Jadwal Kelas ===== -->
             <Tab text="Input Jadwal Kelas">
-                <VBox spacing="10" padding="10">
+                <VBox spacing="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10" />
+                    </padding>
                     <Label text="Form Jadwal Kelas" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
-                    <ComboBox fx:id="kelasJadwalComboBox" promptText="Pilih Kelas" />
-                    <ComboBox fx:id="hariComboBox" promptText="Hari" />
-                    <TextField fx:id="jamMulaiField" promptText="Jam Mulai (contoh: 08:00)" />
-                    <TextField fx:id="jamSelesaiField" promptText="Jam Selesai (contoh: 09:00)" />
-                    <ComboBox fx:id="guruComboBox" promptText="Pilih Guru" />
-                    <ComboBox fx:id="matpelComboBox" promptText="Pilih Mata Pelajaran" />
-                    <Button text="Simpan Jadwal" onAction="#handleSimpanJadwal" />
-                    <Label fx:id="jadwalStatusLabel" textFill="green" />
+                    <ComboBox fx:id="kelas_idCombo" promptText="Pilih Kelas" />
+                    <ComboBox fx:id="jadwal_dateCombo" promptText="Hari" />
+                    <TextField fx:id="jadwal_durationField" promptText="Durasi (contoh: 120 menit)" />
+                    <ComboBox fx:id="guru_idCombo" promptText="Pilih Guru" />
+                    <ComboBox fx:id="matapel_nameCombo" promptText="Pilih Mata Pelajaran" />
+                    <Button text="Simpan Jadwal" onAction="#handleInputJadwal" />
                 </VBox>
             </Tab>
 
+            <!-- ===== TAB: Pembagian Kelas ===== -->
             <Tab text="Pembagian Kelas">
-                <VBox spacing="10" padding="10">
+                <VBox spacing="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10" />
+                    </padding>
                     <Label text="Pembagian Kelas Siswa" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
-                    <ComboBox fx:id="siswaNaikComboBox" promptText="Pilih Siswa" />
-                    <ComboBox fx:id="kelasBaruComboBox" promptText="Kelas Baru" />
-                    <ComboBox fx:id="waliBaruComboBox" promptText="Wali Kelas Baru" />
-                    <Button text="Update Kelas Siswa" onAction="#handleUpdateKelasSiswa" />
+                    <ComboBox fx:id="siswa_idComboBox" promptText="Pilih Siswa" />
+                    <ComboBox fx:id="new_kelas_idComboBox" promptText="Kelas Baru" />
+                    <ComboBox fx:id="new_wali_kelas_idComboBox" promptText="Wali Kelas Baru" />
+                    <Button text="Update Kelas Siswa" onAction="#handleUpdateWaliKelasSiswa" />
                     <Label fx:id="updateStatusLabel" textFill="green" />
                 </VBox>
             </Tab>
+
         </TabPane>
     </center>
 </BorderPane>
