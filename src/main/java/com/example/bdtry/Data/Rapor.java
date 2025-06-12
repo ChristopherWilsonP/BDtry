@@ -1,18 +1,19 @@
 package com.example.bdtry.Data;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class Rapor {
     public int raporId;
-    public LocalDate raporPrintDate;
+    public Date raporPrintDate;
     public String raporNote;
     public int siswaId;
     public int nilaiId;
     public int waliKelasId;
 
-    public Rapor(int raporId, LocalDate raporPrintDate, String raporNote,
+    public Rapor(int raporId, Date raporPrintDate, String raporNote,
                  int siswaId, int nilaiId, int waliKelasId) {
         this.raporId = raporId;
         this.raporPrintDate = raporPrintDate;
@@ -23,7 +24,7 @@ public class Rapor {
     }
     public Rapor(ResultSet rs) throws SQLException {
         this.raporId = rs.getInt("rapor_id");
-        this.raporPrintDate = rs.getDate("rapor_print_date").toLocalDate();
+        this.raporPrintDate = rs.getDate("rapor_print_date");
         this.raporNote = rs.getString("rapor_note");
         this.siswaId = rs.getInt("siswa_id");
         this.nilaiId = rs.getInt("nilai_id");

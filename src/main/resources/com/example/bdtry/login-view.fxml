@@ -23,10 +23,10 @@
             <ComboBox fx:id="roleComboBox" maxWidth="200" promptText="Role">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="SISWA" />
-                        <String fx:value="GURU" />
-                        <String fx:value="WALI_KELAS" />
-                        <String fx:value="ADMIN" />
+                        <String fx:value="Siswa" />
+                        <String fx:value="Guru" />
+                        <String fx:value="Wali_Kelas" />
+                        <String fx:value="Admin" />
                     </FXCollections>
                 </items>
             </ComboBox>

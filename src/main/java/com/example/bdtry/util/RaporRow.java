@@ -3,25 +3,27 @@ package com.example.bdtry.util;
 import javafx.beans.property.*;
 
 public class RaporRow {
-    private final StringProperty mataPelajaran;
-    private final IntegerProperty uts;
-    private final IntegerProperty uas;
+    private final String  namaSiswa;
+    private final String mataPelajaran;
+    private final Integer uts;
+    private final Integer uas;
 
-    public RaporRow(String mataPelajaran, int uts, int uas) {
-        this.mataPelajaran = new SimpleStringProperty(mataPelajaran);
-        this.uts = new SimpleIntegerProperty(uts);
-        this.uas = new SimpleIntegerProperty(uas);
+    public RaporRow(String namaSiswa, String mataPelajaran, int uts, int uas) {
+        this.namaSiswa = namaSiswa;
+        this.mataPelajaran = mataPelajaran;
+        this.uts = uts;
+        this.uas = uas;
     }
 
-    public StringProperty mataPelajaranProperty() {
+    public String mataPelajaranProperty() {
         return mataPelajaran;
     }
 
-    public IntegerProperty utsProperty() {
+    public Integer utsProperty() {
         return uts;
     }
 
-    public IntegerProperty uasProperty() {
+    public Integer uasProperty() {
         return uas;
     }
 }

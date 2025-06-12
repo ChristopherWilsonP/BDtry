@@ -12,17 +12,13 @@ public class HelloApplication extends Application {
     private static HelloApplication applicationInstance;
     private static Stage primaryStage;
 
-    public static HelloApplication getApplicationInstance() {
-        return applicationInstance;
-    }
+    public static HelloApplication getApplicationInstance() {return applicationInstance;}
 
-    public static Stage getPrimaryStage() {
-        return primaryStage;
-    }
+    public static Stage getPrimaryStage() {return primaryStage;}
 
     @Override
     public void start(Stage stage) throws IOException {
-        applicationInstance = this;
+        HelloApplication.applicationInstance = this;
         primaryStage = stage;
 
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
@@ -30,7 +26,7 @@ public class HelloApplication extends Application {
 
         stage.setTitle("Login");
         stage.setScene(scene);
-        stage.show(); // ✅ satu-satunya show()
+        stage.show();
     }
 
     public static void main(String[] args) {
