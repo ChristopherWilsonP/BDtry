@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -9,7 +11,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bdtry.controller.StudentController">
    <children>
@@ -29,20 +30,22 @@
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="60.79999999999999" minHeight="10.0" prefHeight="28.8000244140625" vgrow="SOMETIMES" />
-                      <RowConstraints maxHeight="31.99997558593749" minHeight="0.0" prefHeight="31.99997558593749" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="31.99997558593749" minHeight="0.0" prefHeight="31.99997558593749" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="31.99997558593749" minHeight="10.0" prefHeight="31.99997558593749" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label prefHeight="41.0" prefWidth="250.0" style="-fx-border-color: gray;" text="    ID SISWA" GridPane.rowIndex="1" />
-                        <Label prefHeight="30.0" prefWidth="290.0" style="-fx-border-color: gray;" text="    NAMA LENGKAP" GridPane.rowIndex="2" />
-                        <Label prefHeight="38.0" prefWidth="250.0" style="-fx-border-color: gray;" text="    TANGGAL LAHIR" GridPane.rowIndex="3" />
-                        <Label prefHeight="22.0" prefWidth="270.0" style="-fx-border-color: gray;" text="    ALAMAT" />
-                        <Label prefHeight="54.0" prefWidth="372.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" />
-                        <Label prefHeight="55.0" prefWidth="400.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label prefHeight="49.0" prefWidth="380.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label prefHeight="71.0" prefWidth="504.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label prefHeight="71.0" prefWidth="504.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label prefHeight="41.0" prefWidth="250.0" style="-fx-border-color: gray;" text="    ID SISWA" />
+                        <Label prefHeight="22.0" prefWidth="149.0" style="-fx-border-color: gray;" text="    NAMA LENGKAP" GridPane.rowIndex="1" />
+                        <Label prefHeight="38.0" prefWidth="250.0" style="-fx-border-color: gray;" text="    TANGGAL LAHIR" GridPane.rowIndex="2" />
+                        <Label fx:id="idLabel" prefHeight="54.0" prefWidth="372.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" />
+                        <Label fx:id="birthDateLabel" prefHeight="55.0" prefWidth="400.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="addressLabel" prefHeight="71.0" prefWidth="504.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label prefHeight="35.0" prefWidth="134.0" style="-fx-border-color: gray;" text="    ALAMAT" GridPane.rowIndex="3" />
+                        <Label fx:id="nameLabel" prefHeight="122.0" prefWidth="358.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label prefHeight="183.0" prefWidth="234.0" style="-fx-border-color: gray;" text="    KELAS" GridPane.rowIndex="4" />
+                        <Label fx:id="classLabel" prefHeight="233.0" prefWidth="379.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                </children>
@@ -56,40 +59,23 @@
                   </Label>
                </children>
             </HBox>
-            <VBox layoutX="14.0" layoutY="203.0" prefHeight="200.0" prefWidth="341.0">
+            <VBox layoutX="14.0" layoutY="203.0" prefHeight="187.0" prefWidth="341.0">
                <children>
                   <Label prefHeight="20.0" prefWidth="342.0" text="   JADWAL KELAS">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <GridPane>
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label prefHeight="69.0" prefWidth="180.0" style="-fx-border-color: gray;" text="   HARI" />
-                        <Label prefHeight="64.0" prefWidth="154.0" style="-fx-border-color: gray;" text="   DURASI" GridPane.columnIndex="1" />
-                        <Label prefHeight="71.0" prefWidth="168.0" style="-fx-border-color: gray;" text="   MATA PELAJARAN" GridPane.columnIndex="2" />
-                        <Label prefHeight="102.0" prefWidth="187.0" style="-fx-border-color: gray;" GridPane.rowIndex="1" />
-                        <Label prefHeight="78.0" prefWidth="191.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label prefHeight="105.0" prefWidth="179.0" style="-fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Label prefHeight="74.0" prefWidth="147.0" style="-fx-border-color: gray;" GridPane.rowIndex="2" />
-                        <Label prefHeight="66.0" prefWidth="138.0" style="-fx-border-color: gray;" GridPane.rowIndex="3" />
-                        <Label prefHeight="75.0" prefWidth="155.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label prefHeight="92.0" prefWidth="213.0" style="-fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Label prefHeight="74.0" prefWidth="138.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label prefHeight="61.0" prefWidth="148.0" style="-fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                     </children>
-                  </GridPane>
+                  <TableView fx:id="scheduleTable" editable="true" prefHeight="172.0" prefWidth="359.0">
+                    <columns>
+                      <TableColumn fx:id="dayColumn" prefWidth="75.0" text="HARI" />
+                      <TableColumn fx:id="durationColumn" prefWidth="75.0" text="DURASI" />
+                        <TableColumn fx:id="subjectColumn" prefWidth="75.0" text="MATA PELAJARAN" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
                </children>
             </VBox>
             <VBox layoutX="385.0" layoutY="203.0" prefHeight="187.0" prefWidth="341.0">
@@ -99,33 +85,16 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <GridPane>
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label prefHeight="74.0" prefWidth="215.0" style="-fx-border-color: gray;" text="   MATA PELAJARAN" />
-                        <Label prefHeight="72.0" prefWidth="178.0" style="-fx-border-color: gray;" text="   UTS" GridPane.columnIndex="1" />
-                        <Label prefHeight="81.0" prefWidth="202.0" style="-fx-border-color: gray;" text="   UAS" GridPane.columnIndex="2" />
-                        <Label prefHeight="70.0" prefWidth="136.0" style="-fx-border-color: gray;" GridPane.rowIndex="1" />
-                        <Label prefHeight="69.0" prefWidth="169.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label prefHeight="62.0" prefWidth="163.0" style="-fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Label prefHeight="72.0" prefWidth="166.0" style="-fx-border-color: gray;" GridPane.rowIndex="2" />
-                        <Label prefHeight="72.0" prefWidth="212.0" style="-fx-border-color: gray;" GridPane.rowIndex="3" />
-                        <Label prefHeight="80.0" prefWidth="167.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label prefHeight="55.0" prefWidth="148.0" style="-fx-border-color: gray;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label prefHeight="71.0" prefWidth="193.0" style="-fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Label prefHeight="66.0" prefWidth="114.0" style="-fx-border-color: gray;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                     </children>
-                  </GridPane>
+                  <TableView fx:id="scoreTable" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="subjectScoreColumn" prefWidth="75.0" text="MATA PELAJARAN" />
+                      <TableColumn fx:id="utsColumn" prefWidth="75.0" text="UTS" />
+                      <TableColumn fx:id="uasColumn" prefWidth="75.0" text="UAS" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
                </children>
             </VBox>
          </children>
