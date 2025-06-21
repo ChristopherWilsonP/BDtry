@@ -124,35 +124,30 @@ public class StudentController {
     private void loadScores() {
         ObservableList<ScoreRow> data = FXCollections.observableArrayList();
         try (Connection conn = MainDataSource.getConnection()) {
-            String sql =  "SELECT m.matpel_name, " +
-                    "MAX(CASE WHEN LOWER(n.nilai_test_type) = 'uts' THEN n.nilai_grade END) AS uts, " +
-                    "MAX(CASE WHEN LOWER(n.nilai_test_type) = 'uas' THEN n.nilai_grade END) AS uas " +
+            String sql =  "SELECT mp.matpel_name, " +
+                    "MAX(CASE WHEN n.nilai_test_type = 'UTS' THEN n.nilai_grade END) AS uts, " +
+                    "MAX(CASE WHEN n.nilai_test_type = 'UAS' THEN n.nilai_grade END) AS uas " +
                     "FROM nilai n " +
-                    "JOIN mata_pelajaran m ON m.matpel_id = n.matpel_id " +
+                    "JOIN jadwal j ON n.jadwal_id = j.jadwal_id " +
+                    "JOIN mata_pelajaran mp ON j.matpel_id = mp.matpel_id " +
                     "WHERE n.siswa_id = ? " +
-                    "GROUP BY m.matpel_name";
-
+                    "GROUP BY mp.matpel_name, mp.matpel_id " +
+                    "ORDER BY mp.matpel_id; ";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, studentId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                String matpel = rs.getString("matpel_name");
-
-                // Penanganan null → jika belum ada nilai UTS/UAS maka kita beri nilai -1
-                Integer uts = rs.getObject("uts") != null ? rs.getInt("uts") : -1;
-                Integer uas = rs.getObject("uas") != null ? rs.getInt("uas") : -1;
-
-                data.add(new ScoreRow(matpel, uts, uas));
-
-                // Optional: debug
-                System.out.println("MAPEL: " + matpel + ", UTS: " + uts + ", UAS: " + uas);
+                data.add(new ScoreRow(
+                        rs.getString("matpel_name"),
+                        rs.getInt("uts"),
+                        rs.getInt("uas")
+                ));
             }
             scoreTable.setItems(data);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 
     // ======= Inner Classes for TableView Rows =======
 

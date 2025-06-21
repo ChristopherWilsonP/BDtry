@@ -111,15 +111,6 @@ public class LoginController {
             errorLabel.setText("Semua field harus diisi.");
             return;
         }
-//        try{
-//            if(){
-//
-//            }
-//        }catch (SQLException e){
-//            showAlert("Database Error", "Connection Failed", "Could not connect to the database.");
-//        }catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
 
         try {
             if (verifyCredentials(username, password, role)) {
